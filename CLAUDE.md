@@ -2,7 +2,7 @@
 
 An app for safely keeping, per person, the account details of the services in use (URL, account name, password, billing, whether two-factor authentication is on, and so on). It runs on Cloudflare and is open only to invited people.
 
-This file holds the rules for developing with Claude Code. The app was built after the spec was written up in a PRD and a Dev Spec (design document). Both are private; references in code comments such as `Dev Spec 8 章` (chapter 8 of the Dev Spec) and `discussionNN` point to those private documents.
+This file holds the rules for developing with Claude Code. The app was built after the spec was written up in a PRD and a Dev Spec (design document). Both are in `docs/PRD/` and `docs/DevSpec/` (translated into English); references in code comments such as `Dev Spec 8 章` (chapter 8 of the Dev Spec) point to them. References to `discussionNN` point to the spec discussions, which are private and not included.
 
 ## Main commands
 

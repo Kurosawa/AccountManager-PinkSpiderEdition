@@ -9,7 +9,7 @@ This repository is here to be read as a portfolio piece. Development continues i
 >
 > - There is no live demo or hosted environment you can try.
 > - Running it locally or deploying it is not supported. Cloning it does not give you a working app as-is.
-> - The design documents and spec discussions it refers to are private and not included.
+> - The PRD and Dev Spec are included (translated into English), but the spec discussions they refer to are private and not included.
 > - Issues and pull requests are not accepted.
 
 ## Security design
@@ -48,6 +48,8 @@ This repository is here to be read as a portfolio piece. Development continues i
 | `src/vault/` | Vault flows, entry contents, backups, import, passkeys, renewal dates, settings |
 | `src/screens/`, `src/app.css` | Screens (the settings sections are in `src/screens/settings/`) |
 | `worker/` | API, Access verification, sessions, D1 |
+| `docs/PRD/PRD.md` | PRD: what to build, the phases, and what is out of scope |
+| `docs/DevSpec/DevSpec.md` | Dev Spec: how it is built, from the encryption design to each phase |
 | `docs/Deploy.md` | How to deploy to your own Cloudflare account |
 | `CLAUDE.md` | Rules for developing with Claude Code |
 
@@ -59,7 +61,7 @@ It was built together with Claude Code (Anthropic's AI coding tool). Rather than
 2. For each group of features (a phase), settle the spec before building it. The look of the screens is decided through Impeccable.
 3. After building, check what was built against the PRD item by item before calling it done.
 
-The conversations used to settle the spec and the design documents are private. References in code comments such as `Dev Spec 8 章` (chapter 8 of the Dev Spec) and `discussionNN` point to those documents. Code comments are in Japanese.
+The PRD and Dev Spec are included as they stood in the private repository, translated into English (`docs/PRD/`, `docs/DevSpec/`). References in code comments such as `Dev Spec 8 章` (chapter 8 of the Dev Spec) point to them. The conversations used to settle the spec (`discussionNN`) are private and not included. Code comments are in Japanese.
 
 ## For reference (not supported)
 
