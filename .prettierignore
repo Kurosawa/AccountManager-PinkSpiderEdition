@@ -1,0 +1,14 @@
+dist/
+node_modules/
+.wrangler/
+worker-configuration.d.ts
+package-lock.json
+.claude/logs/
+.claude/TASK_DIARY.md
+Conversation/
+.impeccable/
+# Impeccable が書く地図の形(design-compact)。整形すると行が字下げされ、形が崩れる
+DESIGN.md
+docs/
+CLAUDE.md
+README.md

@@ -1,0 +1,28 @@
+# 秘匿情報(API キー、エンドポイント)
+.env/
+.env
+.env.local
+.env.*.local
+
+# ログ・OS・エディタ
+*.log
+.DS_Store
+.idea/
+
+# Claude Code のローカル設定・圧縮前ログ
+.claude/settings.local.json
+.claude/logs/
+
+# Windows のダウンロード情報(WSL でコピーしたときに付く)
+*:Zone.Identifier
+
+# wrangler の手元の秘密の値・作業ファイル
+.dev.vars
+.wrangler/
+node_modules/
+dist/
+
+# 手元だけの作業のもの(公開しない): Claude Code の設定・Hook・日誌、手元の決まり、質問と回答のファイル
+.claude/
+CLAUDE.local.md
+.work/

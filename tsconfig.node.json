@@ -1,0 +1,22 @@
+// 設定ファイルと、Node.js の機能を使うテスト(*.node.test.ts)とそれが読む部品。Node.js で動く
+{
+  "extends": "@tsconfig/node24/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
+  },
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "scripts/**/*.ts",
+    "src/**/*.node.test.ts",
+    "src/crypto/bytes.ts",
+    "src/crypto/kdf.ts",
+    "src/shared/**/*.ts"
+  ]
+}

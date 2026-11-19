@@ -1,0 +1,27 @@
+// 画面(dist/)と /api を 1 つの Worker で配信する。公開先は workers.dev。
+// 秘密の値(worker/env.ts)は `npx wrangler secret put <名前>` で登録し、このファイルには書かない。
+// ENVIRONMENT はここに書かない(手元の .dev.vars にだけ書く。書くと開発用の抜け道が本番で効く)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "account-manager-demo",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  // 版ごとのプレビュー用の URL は作らない(Access をかけ忘れると誰でも開けるため)
+  "preview_urls": false,
+  "assets": {
+    // 画面のパスは index.html を返し、画面側に任せる
+    "not_found_handling": "single-page-application",
+    // /api/* は必ず Worker へ。画面のファイルのヘッダーは public/_headers で付ける
+    "run_worker_first": ["/api/*"],
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "account-manager-demo",
+      // `npx wrangler d1 create account-manager-demo` で表示された ID に置き換える
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations",
+    },
+  ],
+}

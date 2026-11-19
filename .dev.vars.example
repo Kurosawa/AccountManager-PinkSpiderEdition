@@ -1,0 +1,6 @@
+# 手元の開発用。これを .dev.vars にコピーして使う(.dev.vars は Git の管理外)
+ENVIRONMENT=development
+DEV_ACCESS_EMAIL=dev@example.com
+# 手元用のランダムな値(本番とは別の値にする)。例: openssl rand -base64 32
+USER_ID_PEPPER=
+AUTH_PEPPER=

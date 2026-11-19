@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T07:31:18+00:00",
+  "title": "Design System: AccountManager",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Calm blue",
+        "dark": "#6a9df5",
+        "canonical": "oklch(52.0% 0.194 261.5)",
+        "tonalRamp": [
+          "#000729",
+          "#032058",
+          "#103b8c",
+          "#2059c4",
+          "#427deb",
+          "#72a4fe",
+          "#a2caff",
+          "#d3f0ff"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Dark blue",
+        "dark": "#8ab3f8"
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Primary button text",
+        "dark": "#0d1420"
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Pale blue",
+        "dark": "#1d2a42"
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus blue",
+        "dark": "#8ab3f8"
+      },
+      "danger": {
+        "role": "secondary",
+        "displayName": "Red",
+        "dark": "#f08a8a",
+        "canonical": "oklch(53.9% 0.194 26.7)",
+        "tonalRamp": [
+          "#220000",
+          "#4d0003",
+          "#7c1012",
+          "#af2323",
+          "#d84c45",
+          "#f17f74",
+          "#ffaea4",
+          "#ffddd4"
+        ]
+      },
+      "danger-soft": {
+        "role": "secondary",
+        "displayName": "Pale red",
+        "dark": "#3a1f22"
+      },
+      "ok": {
+        "role": "secondary",
+        "displayName": "Green",
+        "dark": "#74c99a",
+        "canonical": "oklch(51.3% 0.119 153.5)",
+        "tonalRamp": [
+          "#001003",
+          "#012e15",
+          "#0f4f2b",
+          "#217343",
+          "#479563",
+          "#79b58b",
+          "#a9d6b5",
+          "#d8f8e1"
+        ]
+      },
+      "ok-soft": {
+        "role": "secondary",
+        "displayName": "Pale green",
+        "dark": "#17301f"
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Light gray ground",
+        "dark": "#101318",
+        "canonical": "oklch(97.0% 0.003 264.5)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a6",
+          "#c8c9ca",
+          "#eeeeef"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "White surface",
+        "dark": "#181c23"
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Recessed surface",
+        "dark": "#1d222a"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "dark": "#e8eaee",
+        "canonical": "oklch(20.9% 0.017 264.1)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#23252a",
+          "#3f4249",
+          "#5d616a",
+          "#7e828c",
+          "#a1a5ad",
+          "#c6c9cf",
+          "#eceef3"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "dark": "#b4bac5"
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "dark": "#9aa1ad"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "dark": "#2a3039",
+        "canonical": "oklch(92.4% 0.008 260.7)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeef0"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong rule",
+        "dark": "#3a414c"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Headings in the details pane (22px below 600px)"
+      },
+      "headline-gate": {
+        "displayName": "Headline (before unlocking)",
+        "purpose": "Heading on the white card before unlocking"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "List pane heading"
+      },
+      "title-section": {
+        "displayName": "Title (section)",
+        "purpose": "Settings section headings, the name on the screens before unlocking, the total amount"
+      },
+      "entry-name": {
+        "displayName": "List name",
+        "purpose": "Service name in list rows"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Body text, values in field tables, inputs"
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Buttons (600), notices, descriptions"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Input labels (600), field names and small buttons (14px)"
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Counts, secondary text, hints, tags (only the billing-cycle suffix is 12px)"
+      },
+      "secret": {
+        "displayName": "Secret value",
+        "purpose": "Revealed passwords"
+      },
+      "recovery-key": {
+        "displayName": "Recovery key",
+        "purpose": "The recovery key"
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow",
+        "value": "0 1px 2px rgb(20 24 32 / 6%), 0 4px 12px rgb(20 24 32 / 6%)",
+        "purpose": "Only the white card on the screens before unlocking (light mode)."
+      },
+      {
+        "name": "shadow-dark",
+        "value": "0 1px 2px rgb(0 0 0 / 30%), 0 4px 14px rgb(0 0 0 / 25%)",
+        "purpose": "The same card's value in dark mode."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "120ms ease-out",
+        "purpose": "How button background and border colors change. Stopped under reduced motion."
+      },
+      {
+        "name": "clear-meter",
+        "value": "30s linear forwards",
+        "purpose": "The 3px blue line under a copied field shrinks from scaleX(1) to 0. Under reduced motion it does not shrink and stays at an opacity of 0.6."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "one-pane",
+        "value": "899px",
+        "purpose": "At or below this, only the list or the details is shown"
+      },
+      {
+        "name": "stacked-sheet",
+        "value": "599px",
+        "purpose": "At or below this, field table rows stack into a single column"
+      },
+      {
+        "name": "list-pane-fixed",
+        "value": "900px",
+        "purpose": "At or above this, the list pane fits the screen height and only the rows scroll inside it (discussion45). The height subtracts the 56px top bar"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one blue primary button per section (「登録」 Add, 「開く」 Open).",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" /></svg>登録</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}.ds-btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.ds-btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}"
+    },
+    {
+      "name": "Regular button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A strong rule border on a white surface. Edit, Close, Copy, and so on.",
+      "html": "<button class=\"ds-btn\">編集する</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}"
+    },
+    {
+      "name": "Quiet button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "A button with no border or background (「設定」 Settings, 「一覧に戻る」 Back to list).",
+      "html": "<button class=\"ds-btn ds-btn-quiet\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\" /> <path d=\"M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z\" /></svg>設定</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}.ds-btn-quiet{border-color:transparent;background:transparent;color:var(--ink-2)}.ds-btn-quiet:hover{background:var(--surface-2);border-color:transparent;color:var(--ink)}"
+    },
+    {
+      "name": "Danger button (two steps)",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Pressing the red-text button changes it to a confirmation step with a red-filled button.",
+      "html": "<div class=\"ds-row\"><button class=\"ds-btn ds-btn-danger\">削除する</button><button class=\"ds-btn ds-btn-danger-solid\">削除する</button></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}.ds-row{display:flex;gap:var(--s2)}.ds-btn-danger{color:var(--danger)}.ds-btn-danger-solid{background:var(--danger);border-color:var(--danger);color:var(--surface)}.ds-btn-danger-solid:hover{background:var(--danger);border-color:var(--danger);filter:brightness(.92)}"
+    },
+    {
+      "name": "Search input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Search in the list pane. A magnifying glass on the left, 16px text.",
+      "html": "<div class=\"ds-search\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6.5\" /> <path d=\"m16 16 4.5 4.5\" /></svg><input class=\"ds-input ds-input-search\" placeholder=\"サービス名・アカウント名で探す\"></div>",
+      "css": ".ds-search{position:relative}.ds-search .ds-icon{position:absolute;left:12px;top:12px;color:var(--ink-3);pointer-events:none}.ds-input{width:100%;min-height:44px;padding:var(--s2) var(--s3);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:16px}.ds-input::placeholder{color:var(--ink-3)}.ds-input:focus{outline:2px solid var(--focus);outline-offset:-1px;border-color:var(--focus)}.ds-input-search{padding-left:40px}"
+    },
+    {
+      "name": "Top of the list pane and rows",
+      "kind": "nav",
+      "refersTo": "entry-row",
+      "description": "The monthly total and the total converted to yen (discussion53), the upcoming-renewals notice (discussion51), and service name, account name, amount, and renewal badge. The selected row has a pale blue background. The notice is on a gray surface, with no blue or red.",
+      "html": "<div class=\"ds-list\"><p class=\"ds-total\">月あたりの課金 <strong>¥10,525</strong> + <strong>$24.00</strong></p><p class=\"ds-total-yen\">円にすると 月 約 <strong>¥14,125</strong><span class=\"ds-total-rate\">(1 ドル = 150 円。11/19 に決めた)</span></p><section class=\"ds-renewals\"><h2 class=\"ds-renewals-title\">更新が近いもの <span>2 件</span></h2><button class=\"ds-renewal\"><span>オンライン英会話</span><span class=\"ds-renewal-when is-overdue\">11/10 過ぎています</span></button><button class=\"ds-renewal\"><span>クラウドストレージ</span><span class=\"ds-renewal-when\">11/22 あと 3 日</span></button></section><button class=\"ds-entry\"><span class=\"ds-entry-name\">オンライン英会話</span><span class=\"ds-entry-amount\">¥6,480<span class=\"ds-entry-cycle\"> / 月</span></span><span class=\"ds-entry-sub\">sample-learner</span><span class=\"ds-entry-due is-overdue\">過ぎています</span></button><button class=\"ds-entry\" aria-current=\"true\"><span class=\"ds-entry-name\">動画見放題サービス</span><span class=\"ds-entry-amount\">¥1,490<span class=\"ds-entry-cycle\"> / 月</span></span><span class=\"ds-entry-sub\">family-01</span></button></div>",
+      "css": ".ds-list{padding:var(--s2);background:var(--surface)}.ds-entry{width:100%;display:grid;grid-template-columns:1fr auto;gap:2px var(--s3);align-items:baseline;padding:var(--s3);border:0;border-radius:var(--radius);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer}.ds-entry:hover{background:var(--surface-2)}.ds-entry:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-entry[aria-current=\"true\"]{background:var(--accent-soft)}.ds-entry-name{font-size:16px;font-weight:650}.ds-entry-sub{grid-column:1;font-size:13px;color:var(--ink-3)}.ds-entry-amount{grid-row:1;grid-column:2;font-size:14px;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}.ds-entry-cycle{font-size:12px;color:var(--ink-3)}.ds-total{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s1) var(--s2);margin:0 var(--s3);font-size:13px;color:var(--ink-2)}.ds-total strong{font-size:17px;color:var(--ink)}.ds-total-yen{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s1);margin:var(--s1) var(--s3) var(--s3);font-size:13px;color:var(--ink-2)}.ds-total-yen strong{font-size:15px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}.ds-total-rate{color:var(--ink-3)}.ds-renewals{display:grid;gap:var(--s1);margin:0 0 var(--s2);padding:var(--s2);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface-2)}.ds-renewals-title{margin:0;padding:0 var(--s2);font-size:14px;font-weight:600;color:var(--ink)}.ds-renewals-title span{font-weight:400;color:var(--ink-2)}.ds-renewal{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);min-height:36px;padding:var(--s1) var(--s2);border:0;border-radius:var(--radius);background:transparent;color:var(--ink);font:inherit;font-size:15px;text-align:left;cursor:pointer;transition:background-color 120ms ease-out}.ds-renewal:hover{background:var(--surface)}.ds-renewal:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-renewal-when{font-size:13px;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}.ds-entry-due{grid-row:2;grid-column:2;justify-self:end;padding:0 var(--s2);border:1px solid var(--line);border-radius:999px;background:var(--surface-2);font-size:13px;color:var(--ink-2);white-space:nowrap}.ds-entry-due.is-overdue,.ds-renewal-when.is-overdue{color:var(--ink);font-weight:600}.ds-entry-due.is-overdue{border-color:var(--line-strong)}@media (prefers-reduced-motion:reduce){.ds-renewal{transition:none}}"
+    },
+    {
+      "name": "Field table and copy countdown line",
+      "kind": "custom",
+      "refersTo": "sheet",
+      "description": "The field table in the details. The blue line under a copied row shrinks over 30 seconds (the signature motion).",
+      "html": "<dl class=\"ds-sheet\"><div class=\"ds-sheet-row\"><dt class=\"ds-sheet-label\">アカウント名</dt><dd class=\"ds-sheet-value\">family-01</dd><dd class=\"ds-sheet-tools\"><button class=\"ds-btn ds-btn-small\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"11\" height=\"11\" rx=\"2\" /> <path d=\"M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2\" /></svg>コピー</button></dd></div><div class=\"ds-sheet-row\"><dt class=\"ds-sheet-label\">パスワード</dt><dd class=\"ds-sheet-value\"><span class=\"ds-secret\">a9Zh(izZ?/*CY*^rmIVo</span></dd><dd class=\"ds-sheet-tools\"><button class=\"ds-btn ds-btn-small ds-copied\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12.5 4.5 4.5L19 7.5\" /></svg>コピーしました</button></dd><span class=\"ds-clear-meter\"></span></div></dl>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}.ds-btn-small{min-height:34px;padding:var(--s1) var(--s3);font-size:14px}.ds-copied{color:var(--ok)}.ds-sheet{margin:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}.ds-sheet-row{position:relative;display:grid;grid-template-columns:180px 1fr auto;gap:var(--s1) var(--s4);align-items:center;padding:var(--s3) var(--s4);border-top:1px solid var(--line)}.ds-sheet-row:first-child{border-top:0}.ds-sheet-label{font-size:14px;color:var(--ink-3)}.ds-sheet-value,.ds-sheet-tools{margin:0;min-width:0;font-size:16px}.ds-sheet-tools{display:flex;justify-content:flex-end;gap:var(--s2)}.ds-secret{font-family:var(--mono);letter-spacing:.04em}.ds-clear-meter{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform-origin:left center;animation:ds-clear-meter 30s linear forwards}@keyframes ds-clear-meter{from{transform:scaleX(1)}to{transform:scaleX(0)}}@media (prefers-reduced-motion:reduce){.ds-clear-meter{animation:none;opacity:.6}}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "A rounded, display-only tag.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">サブスク</span><span class=\"ds-tag\">家族</span></div>",
+      "css": ".ds-tags{display:flex;flex-wrap:wrap;gap:var(--s1)}.ds-tag{padding:2px var(--s2);border-radius:999px;background:var(--surface-2);border:1px solid var(--line);font-size:13px;color:var(--ink-2)}"
+    },
+    {
+      "name": "Notice",
+      "kind": "custom",
+      "refersTo": "notice-error",
+      "description": "Notices for errors, things that are done, and info. An icon on the left.",
+      "html": "<div class=\"ds-stack\"><p class=\"ds-notice ds-notice-error\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\" /> <path d=\"M12 7.5v5.5M12 16.5v.01\" /></svg><span>マスターパスワードが違います</span></p><p class=\"ds-notice ds-notice-ok\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12.5 4.5 4.5L19 7.5\" /></svg><span>保存しました</span></p></div>",
+      "css": ".ds-stack{display:grid;gap:var(--s2)}.ds-notice{margin:0;display:flex;gap:var(--s2);align-items:flex-start;padding:var(--s3) var(--s4);border-radius:var(--radius);font-size:15px;line-height:1.5}.ds-notice .ds-icon{margin-top:1px;flex:none}.ds-notice-error{background:var(--danger-soft);color:var(--danger)}.ds-notice-ok{background:var(--ok-soft);color:var(--ok)}"
+    },
+    {
+      "name": "Card before unlocking",
+      "kind": "card",
+      "refersTo": "gate-card",
+      "description": "The white card in the center of the screens before unlocking. The only surface with a shadow.",
+      "html": "<section class=\"ds-gate\"><h1 class=\"ds-gate-title\">管理画面を開く</h1><label class=\"ds-field\"><span class=\"ds-field-label\">マスターパスワード</span><input class=\"ds-input\" type=\"password\"></label><button class=\"ds-btn ds-btn-primary\">開く</button></section>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:40px;padding:var(--s2) var(--s4);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color 120ms ease-out,border-color 120ms ease-out}.ds-btn:hover{background:var(--surface-2);border-color:var(--ink-3)}.ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}.ds-btn:disabled{cursor:not-allowed;opacity:.55}.ds-btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.ds-btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}.ds-gate{width:min(100%,440px);display:grid;gap:var(--s5);padding:var(--s6) var(--s5);border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow);color:var(--ink)}.ds-gate-title{margin:0;font-size:24px;line-height:1.3}.ds-field{display:grid;gap:var(--s1)}.ds-field-label{font-size:14px;font-weight:600;color:var(--ink-2)}.ds-input{width:100%;min-height:44px;padding:var(--s2) var(--s3);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit;font-size:16px}.ds-input:focus{outline:2px solid var(--focus);outline-offset:-1px;border-color:var(--focus)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Everyday Toolbox",
+    "overview": "**Creative North Star: \"The Everyday Toolbox\"**\n\nScreens that keep the familiar password manager pattern (the same list and details as 1Password, Bitwarden, and Apple's Passwords app) intact, and finish it with care through alignment, spacing, type hierarchy, and how states are shown. White surfaces sit on a light gray ground, text is dark ink, and the only accent is one calm blue. There is no eye-catching decoration; the visual goal is that finding, viewing, and copying are over in a few seconds.\n\nDensity is medium. Body text is 16px with a line height of 1.6, with 12–16px of space between rows. Surfaces are separated by thin 1px gray rules rather than shadows, and the only thing with a shadow is the white card on the screens before unlocking. Following the device's light/dark setting (prefers-color-scheme), each color role is swapped for its dark-mode value.\n\nNo fonts, icons, or images are loaded from outside (the security rule in PRODUCT.md). Fonts are the system's own, and icons are home-made SVGs (24 grid, 1.75 stroke). No style attributes are used; every style is written as a class in src/app.css (CSP style-src 'self').",
+    "keyCharacteristics": [
+      "Light gray ground, white surfaces, ink text, and one blue accent. Dark mode provides the same roles",
+      "Two panes: list and details. On phones only one of them is shown",
+      "Surfaces are separated by 1px rules. Only the white card before unlocking has a shadow",
+      "Two corner radii: 8px for controls, 12px for surfaces (tables, settings sections, the card before unlocking). Only tags are fully rounded",
+      "Monospace font only for secret values and the recovery key. Tabular figures for amounts, counts, and dates",
+      "Signature motion: after copying, a blue line under the field shrinks over 30 seconds"
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "The only accent color is one blue. It is used only for selection, primary buttons, focus, links, the key next to the name, and the remaining-time line after copying. Never fill headings or decorative surfaces with blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Meaning-Only Color Rule",
+        "body": "Red is used only for irreversible actions and errors, green only for things that are done. When either fills a background, use the pale tone (danger-soft, ok-soft) with text in the dark tone of the same hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-for-Secrets Rule",
+        "body": "The monospace font is used only for revealed passwords and the recovery key, so that 1 and l, and 0 and O, can be told apart when copying them by hand.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Numbers Rule",
+        "body": "Amounts, counts, and dates use tabular figures (font-variant-numeric: tabular-nums) so that the digits of amounts line up in the list.",
+        "section": "typography"
+      },
+      {
+        "name": "The 13px Floor Rule",
+        "body": "Text meant to be read is at least 13px (the only exception is the 12px billing-cycle suffix). No small, cramped text.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Lifted Card Rule",
+        "body": "Only the white card before unlocking has a shadow. Surfaces inside the main screen are separated by rules, with no added shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use colors by the role names on :root in src/app.css (ground, surface, ink, accent, and so on), and swap in dark-mode values on the prefers-color-scheme side.",
+      "**Do** fit new screens into the list-and-details pattern, and separate surfaces with 1px rules.",
+      "**Do** give controls 8px corners and surfaces that group components 12px corners.",
+      "**Do** choose spacing from the 4, 8, 12, 16, 24, 32, and 48px steps.",
+      "**Do** add icons to src/screens/icons.tsx as SVGs on a 24 grid with a 1.75 stroke and rounded caps.",
+      "**Do** confirm irreversible actions in two steps: a red-text button → a red notice and a red-filled button.",
+      "**Do** use tabular figures for amounts, counts, and dates, and the monospace font for revealed secret values and the recovery key.",
+      "**Do** always pair motion with a way to stop it under prefers-reduced-motion."
+    ],
+    "donts": [
+      "**Don't** load fonts, icons, or images from outside (a security rule; any font must be bundled).",
+      "**Don't** write styles in style attributes (CSP style-src 'self'). Write everything as classes in src/app.css.",
+      "**Don't** use blue as decoration. Don't add a second accent color.",
+      "**Don't** go for a \"security\" look with glowing colors on black. Dark mode uses a calm, navy-leaning gray background (discussion13).",
+      "**Don't** add shadows to surfaces inside the main screen. Only the white card before unlocking has a shadow.",
+      "**Don't** make text meant to be read smaller than 13px (the 12px billing-cycle suffix is the only exception)."
+    ]
+  }
+}

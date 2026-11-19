@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "vitest"],
+  "env": { "browser": true },
+  "categories": { "correctness": "error" },
+  "rules": {
+    "react/no-danger": "error",
+    "eslint/no-eval": "error",
+    "eslint/no-new-func": "error"
+  },
+  "ignorePatterns": ["dist/**", ".wrangler/**", "worker-configuration.d.ts"]
+}

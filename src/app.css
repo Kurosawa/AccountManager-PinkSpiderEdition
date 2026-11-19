@@ -1,0 +1,1167 @@
+/*
+ * AccountManager の見た目(方向性は .impeccable/surfaces の取り決め、値の一覧は DESIGN.md)。
+ * よくあるパスワード管理アプリの形: 明るい灰の地・白い面・差し色は青 1 色。端末の明暗に合わせる。
+ * 外から何も読み込まない(書体はシステムのもの)。style 属性は使わず、すべてここのクラスで書く(CSP)
+ */
+:root {
+  color-scheme: light dark;
+  --ground: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --ink: #141820;
+  --ink-2: #4a5160;
+  --ink-3: #6b7280;
+  --line: #e3e6eb;
+  --line-strong: #cfd4dc;
+  --accent: #1f5fd6;
+  --accent-hover: #1a50b5;
+  --accent-ink: #ffffff;
+  --accent-soft: #e9f0fd;
+  --danger: #c62828;
+  --danger-soft: #fdecec;
+  --ok: #1b7a45;
+  --ok-soft: #e7f5ec;
+  --focus: #1f5fd6;
+  --shadow: 0 1px 2px rgb(20 24 32 / 6%), 0 4px 12px rgb(20 24 32 / 6%);
+  --radius: 8px;
+  --font:
+    system-ui, -apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI',
+    'Meiryo UI', 'Noto Sans JP', sans-serif;
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Noto Sans Mono', monospace;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #101318;
+    --surface: #181c23;
+    --surface-2: #1d222a;
+    --ink: #e8eaee;
+    --ink-2: #b4bac5;
+    --ink-3: #9aa1ad;
+    --line: #2a3039;
+    --line-strong: #3a414c;
+    --accent: #6a9df5;
+    --accent-hover: #8ab3f8;
+    --accent-ink: #0d1420;
+    --accent-soft: #1d2a42;
+    --danger: #f08a8a;
+    --danger-soft: #3a1f22;
+    --ok: #74c99a;
+    --ok-soft: #17301f;
+    --focus: #8ab3f8;
+    --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 14px rgb(0 0 0 / 25%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-wrap: anywhere;
+  word-break: auto-phrase;
+  caret-color: var(--accent);
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+ul {
+  list-style: none;
+}
+
+fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.icon {
+  flex: none;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- ボタンと入力欄 ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 40px;
+  padding: var(--s2) var(--s4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-2);
+  border-color: var(--ink-3);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-danger {
+  color: var(--danger);
+}
+
+.btn-danger-solid {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: var(--surface);
+}
+
+.btn-danger-solid:hover:not(:disabled) {
+  background: var(--danger);
+  border-color: var(--danger);
+  filter: brightness(0.92);
+}
+
+.btn-quiet {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-2);
+}
+
+.btn-quiet:hover:not(:disabled) {
+  background: var(--surface-2);
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.btn-small {
+  min-height: 34px;
+  padding: var(--s1) var(--s3);
+  font-size: 14px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.field {
+  display: grid;
+  gap: var(--s1);
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.field-hint {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+}
+
+.textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
+.input::placeholder {
+  color: var(--ink-3);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -1px;
+  border-color: var(--focus);
+}
+
+.input-search {
+  padding-left: 40px;
+}
+
+.search {
+  position: relative;
+}
+
+.search .icon {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.check,
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 36px;
+  margin-right: var(--s4);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.check input,
+.radio input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.form {
+  display: grid;
+  gap: var(--s4);
+}
+
+.form-group {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.form-group > legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--s1);
+  padding: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.form-group > legend + * {
+  clear: both;
+}
+
+.form-row {
+  display: grid;
+  gap: var(--s4);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  align-items: center;
+}
+
+/* ---- 知らせ ---- */
+
+.notice {
+  display: flex;
+  gap: var(--s2);
+  align-items: flex-start;
+  padding: var(--s3) var(--s4);
+  border-radius: var(--radius);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.notice .icon {
+  margin-top: 1px;
+}
+
+.notice-error {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.notice-ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.notice-info {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.notice-warn {
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+
+/* ---- 開く前の画面(管理画面を開く・はじめての準備・アカウントの復旧) ---- */
+
+.gate {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  padding: clamp(24px, 10vh, 96px) var(--s4) var(--s7);
+}
+
+.gate-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s5);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.gate-brand .icon {
+  color: var(--accent);
+}
+
+.gate-card {
+  width: min(100%, 440px);
+  display: grid;
+  gap: var(--s5);
+  padding: var(--s6) var(--s5);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.gate-card h1 {
+  font-size: 24px;
+}
+
+.gate-lead {
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+.gate-foot {
+  border-top: 1px solid var(--line);
+  padding-top: var(--s4);
+}
+
+/* 「パスキーで開く」とマスターパスワードの欄の間の区切り(Dev Spec 17 章) */
+.gate-or {
+  color: var(--ink-2);
+  font-size: 14px;
+  text-align: center;
+}
+
+.recovery-key {
+  display: block;
+  padding: var(--s4);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  font-family: var(--mono);
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-align: center;
+  user-select: all;
+}
+
+/* ---- 管理画面の枠 ---- */
+
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  /* 中身の幅に合わせて広がらないようにする(上の帯の名前は、狭いときは点で省く) */
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 56px;
+  padding: var(--s2) var(--s4);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-weight: 700;
+}
+
+.topbar-brand .icon {
+  color: var(--accent);
+}
+
+.topbar-status {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  min-height: 0;
+}
+
+.pane-list {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+  min-height: 0;
+}
+
+.pane-detail {
+  min-width: 0;
+  padding: var(--s6) clamp(16px, 4vw, 48px) var(--s7);
+}
+
+.pane-detail-inner {
+  max-width: 760px;
+  display: grid;
+  gap: var(--s5);
+}
+
+.back {
+  display: none;
+}
+
+/* パソコン: 左の一覧を画面の高さに収め、項目の並びだけを中でスクロールする。
+   右の詳細はページとしてスクロールする(discussion45)。56px は上の帯の高さ */
+@media (min-width: 900px) {
+  .pane-list {
+    position: sticky;
+    top: 56px;
+    align-self: start;
+    height: calc(100vh - 56px);
+    height: calc(100dvh - 56px);
+  }
+
+  .list-body {
+    min-height: 0;
+    overscroll-behavior: contain;
+  }
+}
+
+/* スマホ: 一覧か詳細のどちらか一方だけを出す */
+@media (max-width: 899px) {
+  .topbar-status {
+    display: none;
+  }
+
+  .topbar-brand {
+    min-width: 0;
+  }
+
+  .topbar-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .topbar .grow {
+    margin-left: auto;
+  }
+
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pane-list {
+    border-right: 0;
+  }
+
+  .workspace[data-view='detail'] .pane-list,
+  .workspace[data-view='list'] .pane-detail {
+    display: none;
+  }
+
+  .pane-detail {
+    padding: var(--s4) var(--s4) var(--s7);
+  }
+
+  .back {
+    display: inline-flex;
+    justify-self: start;
+    margin-left: calc(-1 * var(--s3));
+  }
+}
+
+/* ---- 一覧の面 ---- */
+
+.list-head {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-bottom: 1px solid var(--line);
+}
+
+.list-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+.list-title h1 {
+  font-size: 18px;
+}
+
+.list-count {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s1) var(--s2);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.total strong {
+  font-size: 17px;
+  color: var(--ink);
+}
+
+/* 円にまとめた額(discussion53)。今の合計の下に、一段控えめに置く(レートは自分で決めた見当なので「約」) */
+.total-yen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s1);
+  margin-top: calc(-1 * var(--s2));
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.total-yen strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.total-rate {
+  color: var(--ink-3);
+}
+
+.list-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s2);
+}
+
+.list-body {
+  overflow-y: auto;
+  padding: var(--s2);
+}
+
+.entry {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px var(--s3);
+  align-items: baseline;
+  padding: var(--s3);
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.entry:hover {
+  background: var(--surface-2);
+}
+
+.entry[aria-current='true'] {
+  background: var(--accent-soft);
+}
+
+.entry-name {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.entry-sub {
+  grid-column: 1;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.entry-amount {
+  grid-row: 1;
+  grid-column: 2;
+  font-size: 14px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.entry-cycle {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* ---- 更新日のお知らせ(discussion51)。注意の知らせ(notice-warn)と同じ面。青・赤は使わない(The One Blue Rule・The Meaning-Only Color Rule) ---- */
+
+/* 一覧の行の印。タグと同じ形で、金額の下に置く */
+.entry-due {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+  padding: 0 var(--s2);
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.entry-due.is-overdue,
+.renewal-when.is-overdue,
+.renewal-note.is-overdue {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.entry-due.is-overdue {
+  border-color: var(--line-strong);
+}
+
+.renewals {
+  display: grid;
+  gap: var(--s1);
+  padding: var(--s2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.renewals-title {
+  padding: 0 var(--s2);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.renewals-title .num {
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.renewal {
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: var(--s1) var(--s2);
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 120ms ease-out;
+}
+
+.renewal:hover {
+  background: var(--surface);
+}
+
+.renewal-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.renewal-when {
+  display: flex;
+  gap: var(--s2);
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.renewals-more {
+  padding: 0 var(--s2);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+/* 詳細の課金の行の、次の更新日と、そのあとの短い言葉 */
+.renewal-at {
+  white-space: nowrap;
+}
+
+.renewal-note {
+  margin-left: var(--s2);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .renewal {
+    transition: none;
+  }
+}
+
+.empty {
+  display: grid;
+  gap: var(--s2);
+  justify-items: start;
+  padding: var(--s5) var(--s3);
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+/* ---- 詳細の面 ---- */
+
+.detail-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.detail-head h2 {
+  font-size: 26px;
+  margin-right: auto;
+}
+
+.sheet {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.sheet-row {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: var(--s1) var(--s4);
+  align-items: center;
+  padding: var(--s3) var(--s4);
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+.sheet-row:first-child {
+  border-top: 0;
+}
+
+.sheet-label {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.sheet-value {
+  min-width: 0;
+  font-size: 16px;
+}
+
+.sheet-value .secret {
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.masked {
+  white-space: nowrap;
+}
+
+.sheet-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+}
+
+.copy-status {
+  min-height: 1.6em;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+/* 登録した日・更新した日。13px の補助の文字。詳細の面の地(灰)の上なので、墨 3 ではなく墨 2 にする(コントラスト 4.5 以上) */
+.entry-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.tag {
+  padding: 2px var(--s2);
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+/* 署名の動き: コピーした欄の下の線が 30 秒かけて減る(消えるまでの残り) */
+.clear-meter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: left center;
+  animation: clear-meter 30s linear forwards;
+}
+
+@keyframes clear-meter {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.copied {
+  color: var(--ok);
+}
+
+/* コピーした行の中の短い知らせ。パソコンでは表の下の知らせが見えるので出さない */
+.row-note {
+  display: none;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-meter {
+    animation: none;
+    transform: none;
+    opacity: 0.6;
+  }
+
+  .btn,
+  .input-file::file-selector-button {
+    transition: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .sheet-row {
+    grid-template-columns: 1fr;
+    gap: var(--s2);
+  }
+
+  .sheet-tools:empty {
+    display: none;
+  }
+
+  .sheet-tools {
+    justify-content: flex-start;
+  }
+
+  .row-note {
+    display: block;
+  }
+
+  .topbar .btn-text-wide {
+    display: none;
+  }
+
+  .detail-head h2 {
+    font-size: 22px;
+    width: 100%;
+  }
+}
+
+.danger-zone {
+  display: grid;
+  gap: var(--s3);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+/* ---- 設定 ---- */
+
+.settings-section {
+  display: grid;
+  gap: var(--s4);
+  padding: var(--s5);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.settings-section h3 {
+  font-size: 17px;
+}
+
+.settings-section.is-danger h3 {
+  color: var(--danger);
+}
+
+.section-lead {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+/* 登録したパスキーの一覧(Dev Spec 17 章) */
+.passkey-list {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.passkey-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s1) var(--s3);
+  padding: var(--s2) var(--s3);
+  font-size: 15px;
+}
+
+.passkey-list li + li {
+  border-top: 1px solid var(--line);
+}
+
+.passkey-name {
+  min-width: 0;
+  font-weight: 600;
+}
+
+.passkey-date {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.passkey-list .btn {
+  margin-left: auto;
+}
+
+/* ほかのアプリから取り込む前に見せる件数と、足す件の一覧(Dev Spec 16 章) */
+.import-counts {
+  display: grid;
+  gap: var(--s1);
+  font-size: 15px;
+}
+
+.import-preview summary {
+  /* 開け閉めの三角を残すため、display は変えない */
+  padding: var(--s2) 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.import-preview ul {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.import-preview li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s3);
+  padding: var(--s2) var(--s3);
+  font-size: 15px;
+}
+
+.import-preview li + li {
+  border-top: 1px solid var(--line);
+}
+
+/* 押したボタンが消えたときにフォーカスを移す先(文なので、線は出さない) */
+.focus-target:focus {
+  outline: none;
+}
+
+.section-result {
+  display: grid;
+  gap: var(--s3);
+}
+
+.section-result:empty {
+  display: none;
+}
+
+.import-name {
+  font-weight: 600;
+}
+
+.import-account {
+  min-width: 0;
+  color: var(--ink-2);
+}
+
+/* バックアップのファイルを選ぶ欄。ボタンの部分を、小さいボタン(.btn.btn-small)と同じ形にそろえる(discussion28) */
+.input-file {
+  /* 選んだファイルの名前の長さで、区切りの幅を押し広げない(スマホで 1px はみ出したため) */
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.input-file::file-selector-button {
+  min-height: 34px;
+  margin-right: var(--s3);
+  padding: var(--s1) var(--s3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.input-file:hover:not(:disabled)::file-selector-button {
+  background: var(--surface-2);
+  border-color: var(--ink-3);
+}
+
+.input-file:disabled::file-selector-button {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* ---- 読み込み中・全面の知らせ ---- */
+
+.loading {
+  display: grid;
+  place-items: center;
+  min-height: 40vh;
+  color: var(--ink-3);
+}
+
+.stack {
+  display: grid;
+  gap: var(--s5);
+}
+
+/* 開く前の画面の、長い文の補助のボタンは折り返す(狭い画面ではみ出さないように) */
+.gate-foot .btn {
+  white-space: normal;
+  text-align: left;
+}
